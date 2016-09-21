@@ -1,0 +1,208 @@
+What is C language ?
+The C programming language is a standardized programming language developed in the early 1970s by Ken Thompson and Dennis Ritchie for use on the UNIX operating system. It has since spread to many other operating systems, and is one of the most widely used programming languages. C is prized for its efficiency, and is the most popular programming language for writing system software, though it is also used for writing applications
+
+What does static variable mean?
+1. If you declare within a function:
+It retains the value between function calls
+
+2.If it is declared for a function name:
+By default function is extern..so it will be visible from other files if the function declaration is as static..it is invisible for the outer files 
+
+3. Static for global variables:
+By default we can use the global variables from outside files If it is static global..that variable is limited to with in the file.
+
+
+
+What are the different storage classes in C ?
+C has three types of storage: automatic, static and allocated. 
+
+Variable having block scope and without static specifier have automatic storage duration. 
+
+Variables with block scope, and with static specifier have static scope. Global variables (i.e, file scope) with or without the the static specifier also have static scope. 
+
+Memory obtained from calls to malloc(), alloc() or realloc() belongs to allocated storage class
+
+What is hashing ?
+a hashing is called chaining. In this method, a bucket or linked list holds all the elements whose keys hash to the same value. When the hash table is searched, the list must be searched linearly. 
+
+Can static variables be declared in a header file ? 
+
+You can’t declare a static variable without defining it as well (this is because the storage class modifiers static and extern are mutually exclusive). A static variable can be defined in a header file, but this would cause each source file that included the header file to have its own private copy of the variable, which is probably not what was intended.
+
+
+Can a variable be both constant and volatile ?
+Yes. The const modifier means that this code cannot change the value of the variable, but that does not mean that the value cannot be changed by means outside this code. 
+
+The function itself did not change the value of the timer, so it was declared const. However, the value was changed by hardware on the computer, so it was declared volatile. If a variable is both const and volatile, the two modifiers can appear in either order. 
+
+
+
+Can include files be nested?
+Yes. Include files can be nested any number of times. As long as you use precautionary measures , you can avoid including the same file twice. In the past, nesting header files was seen as bad programming practice, because it complicates the dependency tracking function of the MAKE program and thus slows down compilation. Many of today’s popular compilers make up for this difficulty by implementing a concept called precompiled headers, in which all headers and associated dependencies are stored in a precompiled state. 
+
+
+
+What is a null pointer ?
+The null pointer is used in three ways: 
+
+1) To stop indirection in a recursive data structure.
+2) As an error value.
+3) As a sentinel value.
+
+
+
+What is the output of printf("%d") ?
+1. When we write printf("%d",x); this means compiler will print the value of x. But as here, there is nothing after %d so compiler will show in output window garbage value.
+
+What is the difference between calloc() and malloc() ?
+1. calloc(...) allocates a block of memory for an array of elements of a certain size. By default the block is initialized to 0. The total number of memory allocated will be (number_of_elements * size). 
+
+malloc(...) takes in only a single argument which is the memory required in bytes. malloc(...) allocated bytes of memory and not blocks of memory like calloc(...). 
+
+
+
+What is the difference between printf() and sprintf() ?
+sprintf() writes data to the character array whereas printf(...) writes data to the standard output device. 
+
+
+
+
+Advantages of a macro over a function ? 
+Macro gets to see the Compilation environment, so it can expand __ __TIME__ __FILE__ #defines. It is expanded by the preprocessor
+
+
+What is the difference between strings and character arrays ?
+A major difference is: string will have static storage duration, whereas as a character array will not, unless it is explicity specified by using the static keyword. 
+
+
+Difference between const char* p and char const* p 
+In const char* p, the character pointed by ‘p’ is constant, so u cant change the value of character pointed by p but u can make ‘p’ refer to some other location. 
+
+in char const* p, the ptr ‘p’ is constant not the character referenced by it, so u cant make ‘p’ to reference to any other location but u can change the value of the char pointed by ‘p’.
+
+
+What is the stack ?
+The stack is where all the functions’ local (auto) variables are created. The stack also contains some information used to call and return from functions. 
+
+A stack trace is a list of which functions have been called, based on this information. When you start using a debugger, one of the first things you should learn is how to get a stack trace.
+
+--------------------------------------------------------------------------------------------------
+
+C++
+
+What is C++?
+
+Released in 1985, C++ is an object-oriented programming language created by Bjarne Stroustrup. C++ maintains almost all aspects of the C language, while simplifying memory management and adding several features - including a new datatype known as a class (you will learn more about these later) - to allow object-oriented programming. C++ maintains the features of C which allowed for low-level memory access but also gives the programmer new tools to simplify memory management. 
+
+C++ used for:
+
+C++ is a powerful general-purpose programming language. It can be used to create small programs or large applications. It can be used to make CGI scripts or console-only DOS programs. C++ allows you to create programs to do almost anything you need to do. The creator of C++, Bjarne Stroustrup, has put together a partial list of applications written in C++. 
+
+How do you find out if a linked-list has an end? (i.e. the list is not a cycle) 
+
+You can find out by using 2 pointers. One of them goes 2 nodes each time. The second one goes at 1 nodes each time. If there is a cycle, the one that goes 2 nodes each time will eventually meet the one that goes slower. If that is the case, then you will know the linked-list is a cycle. 
+
+
+What is the difference between realloc() and free()? 
+
+The free subroutine frees a block of memory previously allocated by the malloc subroutine. Undefined results occur if the Pointer parameter is not a valid pointer. If the Pointer parameter is a null value, no action will occur. The realloc subroutine changes the size of the block of memory pointed to by the Pointer parameter to the number of bytes specified by the Size parameter and returns a new pointer to the block. The pointer specified by the Pointer parameter must have been created with the malloc, calloc, or realloc subroutines and not been deallocated with the free or realloc subroutines. Undefined results occur if the Pointer parameter is not a valid pointer. 
+
+What is function overloading and operator overloading?
+
+
+Function overloading: C++ enables several functions of the same name to be defined, as long as these functions have different sets of parameters (at least as far as their types are concerned). This capability is called function overloading. When an overloaded function is called, the C++ compiler selects the proper function by examining the number, types and order of the arguments in the call. Function overloading is commonly used to create several functions of the same name that perform similar tasks but on different data types. 
+Operator overloading allows existing C++ operators to be redefined so that they work on objects of user-defined classes. Overloaded operators are syntactic sugar for equivalent function calls. They form a pleasant facade that doesn't add anything fundamental to the language (but they can improve understandability and reduce maintenance costs). 
+
+What is the difference between declaration and definition? 
+
+The declaration tells the compiler that at some later point we plan to present the definition of this declaration.
+E.g.: void stars () //function declaration 
+The definition contains the actual implementation.
+E.g.: void stars () // declarator
+{
+for(int j=10; j > =0; j--) //function body
+cout << *;
+cout << endl; } 
+
+What are the advantages of inheritance? 
+
+It permits code reusability. Reusability saves time in program development. It encourages the reuse of proven and debugged high-quality software, thus reducing problem after a system becomes functional.
+
+What do you mean by inline function?
+The idea behind inline functions is to insert the code of a called function at the point where the function is called. If done carefully, this can improve the application's performance in exchange for increased compile time and possibly (but not always) an increase in the size of the generated binary executables. 
+
+Write a program that ask for user input from 5 to 9 then calculate the average 
+#include "iostream.h"
+int main() {
+int MAX = 4;
+int total = 0;
+int average;
+int numb;
+for (int i=0; i<MAX; i++) {
+cout << "Please enter your input between 5 and 9: ";
+cin >> numb;
+while ( numb<5 || numb>9) {
+cout << "Invalid input, please re-enter: ";
+cin >> numb;
+}
+total = total + numb;
+}
+average = total/MAX;
+cout << "The average number is: " << average << "\n";
+return 0;
+}
+
+Write a short code using C++ to print out all odd number from 1 to 100 using a for loop 
+for( unsigned int i = 1; i < = 100; i++ )
+if( i & 0x00000001 )
+cout << i << \",\"; 
+
+What is public, protected, private? 
+Public, protected and private are three access specifier in C++. 
+Public data members and member functions are accessible outside the class. 
+Protected data members and member functions are only available to derived classes. 
+Private data members and member functions can’t be accessed outside the class. However there is an exception can be using friend classes.
+Write a function that swaps the values of two integers, using int* as the argument type. 
+void swap(int* a, int*b) {
+int t;
+t = *a;
+*a = *b;
+*b = t;
+}
+
+Tell how to check whether a linked list is circular. 
+Create two pointers, each set to the start of the list. Update each as follows: 
+
+while (pointer1) {
+pointer1 = pointer1->next;
+pointer2 = pointer2->next; if (pointer2) pointer2=pointer2->next;
+if (pointer1 == pointer2) {
+print (\"circular\n\");
+}
+}
+
+OK, why does this work?
+If a list is circular, at some point pointer2 will wrap around and be either at the item just before pointer1, or the item before that. Either way, it’s either 1 or 2 jumps until they meet. 
+
+What is virtual constructors/destructors? 
+Answer1
+Virtual destructors:
+If an object (with a non-virtual destructor) is destroyed explicitly by applying the delete operator to a base-class pointer to the object, the base-class destructor function (matching the pointer type) is called on the object.
+There is a simple solution to this problem declare a virtual base-class destructor.
+This makes all derived-class destructors virtual even though they don’t have the same name as the base-class destructor. Now, if the object in the hierarchy is destroyed explicitly by applying the delete operator to a base-class pointer to a derived-class object, the destructor for the appropriate class is called. Virtual constructor: Constructors cannot be virtual. Declaring a constructor as a virtual function is a syntax error. 
+
+Answer2
+Virtual destructors: If an object (with a non-virtual destructor) is destroyed explicitly by applying the delete operator to a base-class pointer to the object, the base-class destructor function (matching the pointer type) is called on the object.
+There is a simple solution to this problem – declare a virtual base-class destructor. This makes all derived-class destructors virtual even though they don’t have the same name as the base-class destructor. Now, if the object in the hierarchy is destroyed explicitly by applying the delete operator to a base-class pointer to a derived-class object, the destructor for the appropriate class is called.
+
+Virtual constructor: Constructors cannot be virtual. Declaring a constructor as a virtual function is a syntax error. Does c++ support multilevel and multiple inheritance?
+Yes.
+
+What are the advantages of inheritance?
+• It permits code reusability.
+• Reusability saves time in program development.
+• It encourages the reuse of proven and debugged high-quality software, thus reducing problem after a system becomes functional.
+
+
+
+

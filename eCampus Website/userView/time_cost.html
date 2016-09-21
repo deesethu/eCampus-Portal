@@ -1,0 +1,46 @@
+
+<html>
+  <head>
+    <script src="d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      
+       var jsonFile = "cluster.json";
+    var newnodes = [['Time','Cost']];
+    d3.json(jsonFile, function(error, graph) {
+    for (var i = 0; i < graph.cost.length; i++) { 
+    newnodes.push([""+graph.cost[i]["time"]+"" , graph.cost[i]["cost"]]);
+    }
+   });
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(newnodes);
+
+        var options = {
+          title: 'Company Performance'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var options = {
+        legend: 'rigth',
+        pointSize: 10,
+        showValueLabels: false,
+        title: 'Cost - Time',
+        showCategoryLabels:false,
+        vAxis: {title: "Cost"},
+        hAxis: {title: "Time"}
+      };
+        chart.draw(data, options);
+        google.visualization.events.addListener(chart, 'select', function(e) {  
+                url = "jobflow.html";
+                window.location.href = url;
+            });
+}
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
